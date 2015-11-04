@@ -32,7 +32,7 @@
               <includes><include>**/*.c</include></includes>
             </source>
           </sources>
-          <jdkIncludePath>/usr/lib/jvm/java-6-sun-1.6.0.22/include/</jdkIncludePath>
+          <jdkIncludePath>${java.home}/../include</jdkIncludePath>
           <javahOS>linux</javahOS>
           <compilerStartOptions>
             <compilerStartOption>-Wall -Os -pedantic -Werror -std=c99 -fpic -fno-stack-protector</compilerStartOption>
