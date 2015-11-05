@@ -1,55 +1,59 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <parent>
-    <groupId>cx.ath.matthew</groupId>
-    <artifactId>libmatthew-parent</artifactId>
-    <version>${project.version}</version>
-    <relativePath>../pom.xml</relativePath>
-  </parent>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.abstractj.libmatthew</groupId>
+        <artifactId>libmatthew-parent</artifactId>
+        <version>${project.version}</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
 
-  <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>libunix</artifactId>
-  <version>0.5.1-SNAPSHOT</version>
-  <packaging>so</packaging>
+    <artifactId>libunix</artifactId>
+    <version>0.5.1-SNAPSHOT</version>
+    <packaging>so</packaging>
 
-  <dependencies>
-    <dependency>
-      <groupId>cx.ath.matthew</groupId>
-      <artifactId>unix</artifactId>
-    </dependency>
-  </dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.abstractj.libmatthew</groupId>
+            <artifactId>unix</artifactId>
+        </dependency>
+    </dependencies>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>native-maven-plugin</artifactId>
-        <version>1.0-alpha-8</version>
-        <extensions>true</extensions>
-        <configuration>
-          <javahClassNames>
-            <javahClassName>cx.ath.matthew.unix.UnixServerSocket</javahClassName>
-            <javahClassName>cx.ath.matthew.unix.UnixSocket</javahClassName>
-            <javahClassName>cx.ath.matthew.unix.USInputStream</javahClassName>
-            <javahClassName>cx.ath.matthew.unix.USOutputStream</javahClassName>
-          </javahClassNames>
-          <javahOutputFileName>unix-java.h</javahOutputFileName>
-          <sources>
-            <source>
-              <directory>src/main/native</directory>
-              <includes><include>**/*.c</include></includes>
-            </source>
-          </sources>
-          <jdkIncludePath>${java.home}/../include</jdkIncludePath>
-          <javahOS>linux</javahOS>
-          <compilerStartOptions>
-            <compilerStartOption>-Wall -Os -pedantic -Werror -std=c99 -fpic -fno-stack-protector</compilerStartOption>
-          </compilerStartOptions>
-          <linkerStartOptions>
-            <linkerStartOption>-shared</linkerStartOption>
-          </linkerStartOptions>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>native-maven-plugin</artifactId>
+                <version>1.0-alpha-8</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <javahClassNames>
+                        <javahClassName>cx.ath.matthew.unix.UnixServerSocket</javahClassName>
+                        <javahClassName>cx.ath.matthew.unix.UnixSocket</javahClassName>
+                        <javahClassName>cx.ath.matthew.unix.USInputStream</javahClassName>
+                        <javahClassName>cx.ath.matthew.unix.USOutputStream</javahClassName>
+                    </javahClassNames>
+                    <javahOutputFileName>unix-java.h</javahOutputFileName>
+                    <sources>
+                        <source>
+                            <directory>src/main/native</directory>
+                            <includes>
+                                <include>**/*.c</include>
+                            </includes>
+                        </source>
+                    </sources>
+                    <jdkIncludePath>${java.home}/../include</jdkIncludePath>
+                    <javahOS>linux</javahOS>
+                    <compilerStartOptions>
+                        <compilerStartOption>-Wall -Os -pedantic -Werror -std=c99 -fpic -fno-stack-protector
+                        </compilerStartOption>
+                    </compilerStartOptions>
+                    <linkerStartOptions>
+                        <linkerStartOption>-shared</linkerStartOption>
+                    </linkerStartOptions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

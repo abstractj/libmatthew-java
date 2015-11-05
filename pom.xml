@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
 
 
-  <groupId>cx.ath.matthew</groupId>
+  <groupId>org.abstractj.libmatthew</groupId>
   <artifactId>libmatthew-parent</artifactId>
   <version>0.8.0-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -80,22 +80,22 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-          <groupId>cx.ath.matthew</groupId>
+          <groupId>org.abstractj.libmatthew</groupId>
           <artifactId>cgi</artifactId>
           <version>${project.cgi.version}</version>
       </dependency>
       <dependency>
-        <groupId>cx.ath.matthew</groupId>
+        <groupId>org.abstractj.libmatthew</groupId>
         <artifactId>hexdump</artifactId>
         <version>${project.hexdump.version}</version>
       </dependency>
       <dependency>
-        <groupId>cx.ath.matthew</groupId>
+        <groupId>org.abstractj.libmatthew</groupId>
         <artifactId>debug</artifactId>
         <version>${project.debug.version}</version>
       </dependency>
       <dependency>
-        <groupId>cx.ath.matthew</groupId>
+        <groupId>org.abstractj.libmatthew</groupId>
         <artifactId>unix</artifactId>
         <version>${project.unix.version}</version>
       </dependency>
