@@ -1,8 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
+
   <groupId>cx.ath.matthew</groupId>
-  <artifactId>libmatthew</artifactId>
+  <artifactId>libmatthew-parent</artifactId>
   <version>0.8.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
@@ -32,6 +33,15 @@
     <enforcer-plugin.version>1.1</enforcer-plugin.version>
     <release-plugin.version>2.4</release-plugin.version>
     <gpg-plugin.version>1.4</gpg-plugin.version>
+
+    <!-- Versions -->
+
+    <project.cgi.version>0.6.1-SNAPSHOT</project.cgi.version>
+    <project.hexdump.version>0.2.1-SNAPSHOT</project.hexdump.version>
+    <project.debug.version>1.1.1-SNAPSHOT</project.debug.version>
+    <project.unix.version>0.5.1-SNAPSHOT</project.unix.version>
+    <project.io.version>0.1.1-SNAPSHOT</project.io.version>
+
   </properties>
 
   <scm>
@@ -66,6 +76,32 @@
     <module>libcgi</module>
     <module>libunix</module>
   </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+          <groupId>cx.ath.matthew</groupId>
+          <artifactId>cgi</artifactId>
+          <version>${project.cgi.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>cx.ath.matthew</groupId>
+        <artifactId>hexdump</artifactId>
+        <version>${project.hexdump.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>cx.ath.matthew</groupId>
+        <artifactId>debug</artifactId>
+        <version>${project.debug.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>cx.ath.matthew</groupId>
+        <artifactId>unix</artifactId>
+        <version>${project.unix.version}</version>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
 
   <build>
     <pluginManagement>
