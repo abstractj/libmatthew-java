@@ -21,7 +21,7 @@ Version 0.7:
 
 	* use += not ?= when setting *FLAGS
 	* Possible SIGSEGV in native_close, possible fix
-	* Don't include debug-disable in any manifests
+	* Don't include cx.ath.matthew.debug-disable in any manifests
 	* Fix some compiler warnings. Setenv doesn't exist on all platforms.
 
 Version 0.6:

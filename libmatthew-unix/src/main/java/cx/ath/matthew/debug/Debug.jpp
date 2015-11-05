@@ -3,24 +3,31 @@
  *
  * Copyright (c) Matthew Johnson 2005
  *
- * This program is free software; you can redistribute it and/or 
- * modify it under the terms of the GNU Lesser General Public License 
- * as published by the Free Software Foundation, version 2 only.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details. 
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  *
  * To Contact the author, please email src@matthew.ath.cx
  *
  */
 
-package cx.ath.matthew.debug;
+package cx.ath.matthew.cx.ath.matthew.debug;
 
-import cx.ath.matthew.utils.Hexdump;
+import cx.ath.matthew.cx.ath.matthew.utils.Hexdump;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -36,9 +43,9 @@ import java.util.Properties;
 
 /**
   Add debugging to your program, has support for large projects with multiple
-  classes and debug levels per class. Supports optional enabling of debug 
-  per-level per-class and debug targets of files, Streams or stderr. 
-  Also supports timing between debug outputs, printing of stack traces for Throwables
+  classes and cx.ath.matthew.debug levels per class. Supports optional enabling of cx.ath.matthew.debug
+  per-level per-class and cx.ath.matthew.debug targets of files, Streams or stderr.
+  Also supports timing between cx.ath.matthew.debug outputs, printing of stack traces for Throwables
   and files/line numbers on each message.
   <p>
    Debug now automatically figures out which class it was called from, so all
@@ -51,7 +58,7 @@ import java.util.Properties;
   Should be called like this:
   </p>
   <pre>
-   if (Debug.debug) Debug.print(Debug.INFO, "Debug Message");
+   if (Debug.cx.ath.matthew.debug) Debug.print(Debug.INFO, "Debug Message");
   </pre>
   */
 public class Debug
@@ -63,13 +70,13 @@ public class Debug
    public static interface FilterCommand
    {
       /** 
-        Called to print debug messages with a custom filter.
+        Called to print cx.ath.matthew.debug messages with a custom filter.
         @param output The PrintStream to output to.
-        @param level The debug level of this message.
+        @param level The cx.ath.matthew.debug level of this message.
         @param location The textual location of the message.
         @param extra Extra information such as timing details.
-        @param message The debug message.
-        @param lines Other lines of a multiple-line debug message.
+        @param message The cx.ath.matthew.debug message.
+        @param lines Other lines of a multiple-line cx.ath.matthew.debug message.
        */
       public void filter(PrintStream output, int level, String location, String extra, String message, String[] lines);
    }
@@ -83,12 +90,12 @@ public class Debug
    public static final int INFO = 4;
    /** Debug messages */
    public static final int DEBUG = 5;
-   /** Verbose debug messages */
+   /** Verbose cx.ath.matthew.debug messages */
    public static final int VERBOSE = 6;
    /** Set this to false to disable compilation of Debug statements */
-   public static final boolean debug = ("true".equals(System.getProperty("libmatthew.debug")));
+   public static final boolean cx.ath.matthew.debug = DEBUGSETTING;
    /** The current output stream (defaults to System.err) */
-   public static PrintStream debugout = System.err;
+   public static PrintStream debugout = System.err;   
    private static Properties prop = null;
    private static boolean timing = false;
    private static boolean ttrace = false;
@@ -107,7 +114,7 @@ public class Debug
       cx.ath.matthew.io.TeeOutputStream = INFO
       cx.ath.matthew.io.DOMPrinter = DEBUG
      </pre>
-     The debug level can be one of CRIT, ERR, WARN, INFO, DEBUG or VERBOSE which
+     The cx.ath.matthew.debug level can be one of CRIT, ERR, WARN, INFO, DEBUG or VERBOSE which
      correspond to all messages up to that level. The special words YES, ALL and TRUE
      cause all messages to be printed regardless of level. All other terms disable 
      messages for that class. CRIT and ERR messages are always printed if debugging is enabled
@@ -120,7 +127,7 @@ public class Debug
       Debug.prop = prop;
    }
    /**
-     Read which class to debug on at which level from the given File.
+     Read which class to cx.ath.matthew.debug on at which level from the given File.
      Syntax the same as Java Properties files:
      <pre>
      &lt;class&gt; = &lt;debuglevel&gt;
@@ -130,7 +137,7 @@ public class Debug
       cx.ath.matthew.io.TeeOutputStream = INFO
       cx.ath.matthew.io.DOMPrinter = DEBUG
      </pre>
-     The debug level can be one of CRIT, ERR, WARN, INFO, DEBUG or VERBOSE which
+     The cx.ath.matthew.debug level can be one of CRIT, ERR, WARN, INFO, DEBUG or VERBOSE which
      correspond to all messages up to that level. The special words YES, ALL and TRUE
      cause all messages to be printed regardless of level. All other terms disable 
      messages for that class. CRIT and ERR messages are always printed if debugging is enabled
@@ -147,7 +154,7 @@ public class Debug
    //TODO: 1.5 @Deprecated()
    public static boolean debugging(Class c, int loglevel)
    {
-      if (debug) {
+      if (cx.ath.matthew.debug) {
          if (null == c) return true;
          return debugging(c.getName(), loglevel);
       }
@@ -155,7 +162,7 @@ public class Debug
    }
    public static boolean debugging(String s, int loglevel)
    {
-      if (debug) {
+      if (cx.ath.matthew.debug) {
          try {
             if (null == s) return true;
             if (null == prop) return loglevel <= DEBUG;
@@ -168,7 +175,7 @@ public class Debug
             if ("yes".equals(d)) return true;
             if ("all".equals(d)) return true;
             if ("verbose".equals(d)) return loglevel <= VERBOSE;
-            if ("debug".equals(d)) return loglevel <= DEBUG;
+            if ("cx.ath.matthew.debug".equals(d)) return loglevel <= DEBUG;
             if ("info".equals(d)) return loglevel <= INFO;
             if ("warn".equals(d)) return loglevel <= WARN;
             if ("err".equals(d)) return loglevel <= ERR;
@@ -193,16 +200,16 @@ public class Debug
    }
 
    /**
-     Output to the default debug.log */
+     Output to the default cx.ath.matthew.debug.log */
    public static void setOutput() throws IOException {
-      setOutput("./debug.log");
+      setOutput("./cx.ath.matthew.debug.log");
    }
    /**
       Log at DEBUG
       @param d The object to log */
    public static void print(Object d)
    {
-      if (debug) {
+      if (cx.ath.matthew.debug) {
          if (d instanceof String)
             print(DEBUG, (String) d);
          else if (d instanceof Throwable)
@@ -223,7 +230,7 @@ public class Debug
    //TODO: 1.5 @Deprecated()
    public static void print(Object o, Object d)
    {
-      if (debug) {
+      if (cx.ath.matthew.debug) {
          if (o instanceof Class)
             saveclass = (Class) o;
          else
@@ -242,7 +249,7 @@ public class Debug
    //TODO: 1.5 @Deprecated()
    public static void print(Object o, int loglevel, Object d)
    {
-      if (debug) {
+      if (cx.ath.matthew.debug) {
          if (o instanceof Class)
             saveclass = (Class) o;
          else
@@ -260,7 +267,7 @@ public class Debug
    //TODO: 1.5 @Deprecated()
    public static void print(Object o, int loglevel, String s)
    {
-      if (debug) {
+      if (cx.ath.matthew.debug) {
          if (o instanceof Class)
             saveclass = (Class) o;
          else
@@ -278,7 +285,7 @@ public class Debug
    //TODO: 1.5 @Deprecated()
    public static void print(Object o, int loglevel, Throwable t)
    {
-      if (debug) {
+      if (cx.ath.matthew.debug) {
          if (o instanceof Class)
             saveclass = (Class) o;
          else
@@ -297,7 +304,7 @@ public class Debug
    //TODO: 1.5 @Deprecated()
    public static void print(Class c, int loglevel, Throwable t)
    {
-      if (debug) {
+      if (cx.ath.matthew.debug) {
          saveclass = c;
          print(loglevel, t);
       }
@@ -310,7 +317,7 @@ public class Debug
     */
    public static void print(int loglevel, Throwable t)
    {
-      if (debug) {
+      if (cx.ath.matthew.debug) {
          String timestr = "";
          String[] data = getTraceElements();
          if (debugging(data[0], loglevel)) {
@@ -318,7 +325,7 @@ public class Debug
                long now = System.currentTimeMillis();
                timestr = "{" + (now-last) + "} ";
                last = now;
-            }
+            }  
             String[] lines = null;
             if (ttrace) {
                StackTraceElement[] ste = t.getStackTrace();
@@ -340,7 +347,7 @@ public class Debug
      @see #setByteArrayWidth to change the formatting width of hex. */
    public static void print(int loglevel, byte[] b)
    {
-      if (debug) {
+      if (cx.ath.matthew.debug) {
          String timestr = "";
          String[] data = getTraceElements();
          if (debugging(data[0], loglevel)) {
@@ -348,10 +355,10 @@ public class Debug
                long now = System.currentTimeMillis();
                timestr = "{" + (now-last) + "} ";
                last = now;
-            }
+            }  
             String[] lines = null;
             if (hexdump) {
-               if (balen >= b.length)
+               if (balen >= b.length) 
                   lines = Hexdump.format(b, bawidth).split("\n");
                else {
                   byte[] buf = new byte[balen];
@@ -370,7 +377,7 @@ public class Debug
     */
    public static void print(int loglevel, String s)
    {
-      if (debug)
+      if (cx.ath.matthew.debug)
          print(loglevel, (Object) s);
    }
    /**
@@ -383,7 +390,7 @@ public class Debug
    //TODO: 1.5 @Deprecated()
    public static void print(Class c, int loglevel, Object d)
    {
-      if (debug) {
+      if (cx.ath.matthew.debug) {
          saveclass = c;
          print(loglevel, d);
       }
@@ -398,7 +405,7 @@ public class Debug
    //TODO: 1.5 @Deprecated()
    public static void print(Class c, int loglevel, String s)
    {
-      if (debug) {
+      if (cx.ath.matthew.debug) {
          saveclass = c;
          print(loglevel, s);
       }
@@ -416,7 +423,7 @@ public class Debug
             if (ste.getClassName().startsWith("sun.reflect")) continue;
             data[0] = ste.getClassName();
             data[1] = ste.getMethodName();
-            if (lines)
+            if (lines) 
                data[2] = " "+ste.getFileName()+":"+ste.getLineNumber();
             break;
          }
@@ -435,7 +442,7 @@ public class Debug
     */
    public static void print(int loglevel, Object o)
    {
-      if (debug) {
+      if (cx.ath.matthew.debug) {
          String timestr = "";
          String[] data = getTraceElements();
          if (debugging(data[0], loglevel)) {
@@ -443,7 +450,7 @@ public class Debug
                long now = System.currentTimeMillis();
                timestr = "{" + (now-last) + "} ";
                last = now;
-            }
+            }  
             _print(o.getClass(), loglevel, data[0]+"."+data[1]+"()" + data[2], timestr, o.toString(), null);
          }
       }
@@ -459,7 +466,7 @@ public class Debug
    //TODO: 1.5 @Deprecated()
    public static void printMap(Object o, int loglevel, Map m)
    {
-      if (debug) {
+      if (cx.ath.matthew.debug) {
          if (o instanceof Class)
             saveclass = (Class) o;
          else
@@ -477,7 +484,7 @@ public class Debug
    //TODO: 1.5 @Deprecated()
    public static void printMap(Class c, int loglevel, Map m)
    {
-      if (debug) {
+      if (cx.ath.matthew.debug) {
          saveclass = c;
          printMap(loglevel, m);
       }
@@ -497,7 +504,7 @@ public class Debug
     */
    public static void printMap(int loglevel, Map m)
    {
-      if (debug) {
+      if (cx.ath.matthew.debug) {
          String timestr = "";
          String[] data = getTraceElements();
          if (debugging(data[0], loglevel)) {
@@ -505,7 +512,7 @@ public class Debug
                long now = System.currentTimeMillis();
                timestr = "{" + (now-last) + "} ";
                last = now;
-            }
+            }  
             Iterator i = m.keySet().iterator();
             String[] lines = new String[m.size()];
             int j = 0;
@@ -584,5 +591,7 @@ public class Debug
                debugout.println(s);
       } else
          f.filter(debugout, level, loc, extra, message, lines);
-   }
+   } 
 }
+
+
