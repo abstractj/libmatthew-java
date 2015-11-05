@@ -6,6 +6,57 @@
   <version>0.8.0</version>
   <packaging>pom</packaging>
 
+  <name>libmatthew</name>
+  <url>http://github.com/abstractj/libmatthew-java</url>
+
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- Minimum JDK version required -->
+    <jdk.version>1.5</jdk.version>
+
+    <!-- Minimum Maven version required to build the project -->
+    <maven.version>3.0.5</maven.version>
+
+    <!-- Maven plugins -->
+    <resources-plugin.version>2.6</resources-plugin.version>
+    <compiler-plugin.version>2.3.2</compiler-plugin.version>
+    <source-plugin.version>2.1.2</source-plugin.version>
+    <javadoc-plugin.version>2.8.1</javadoc-plugin.version>
+    <enforcer-plugin.version>1.1</enforcer-plugin.version>
+    <release-plugin.version>2.4</release-plugin.version>
+    <gpg-plugin.version>1.4</gpg-plugin.version>
+  </properties>
+
+  <scm>
+    <connection>scm:git:git@github.com:abstractj/libmatthew-java.git</connection>
+    <developerConnection>scm:git:git@github.com:abstractj/libmatthew-java.git</developerConnection>
+    <url>https://github.com/abstractj/libmatthew-java</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <distributionManagement>
+    <repository>
+      <id>sonatype-nexus-staging</id>
+      <name>Sonatype Staging Repository</name>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+  <licenses>
+    <license>
+      <name>MIT License (Expat)</name>
+      <url>http://opensource.org/licenses/mit-license.php</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
   <modules>
     <module>debug</module>
     <module>hexdump</module>
@@ -15,4 +66,89 @@
     <module>libcgi</module>
     <module>libunix</module>
   </modules>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>${resources-plugin.version}</version>
+          <configuration>
+            <encoding>${project.build.sourceEncoding}</encoding>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${compiler-plugin.version}</version>
+          <configuration>
+            <source>${jdk.version}</source>
+            <target>${jdk.version}</target>
+            <encoding>${project.build.sourceEncoding}</encoding>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>${source-plugin.version}</version>
+          <executions>
+            <execution>
+              <id>attach-sources</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>jar-no-fork</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${javadoc-plugin.version}</version>
+          <configuration>
+            <show>private</show>
+            <nohelp>true</nohelp>
+          </configuration>
+          <executions>
+            <execution>
+              <id>attach-sources</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>${enforcer-plugin.version}</version>
+          <executions>
+            <execution>
+              <id>enforce-maven</id>
+              <goals>
+                <goal>enforce</goal>
+              </goals>
+              <configuration>
+                <rules>
+                  <requireMavenVersion>
+                    <version>${maven.version}</version>
+                  </requireMavenVersion>
+                </rules>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>${release-plugin.version}</version>
+          <configuration>
+            <pushChanges>false</pushChanges>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 </project>
