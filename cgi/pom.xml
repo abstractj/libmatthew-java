@@ -2,18 +2,13 @@
     <parent>
         <groupId>org.abstractj.libmatthew</groupId>
         <artifactId>libmatthew-parent</artifactId>
-        <version>0.8.0</version>
+        <version>0.8.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cgi</artifactId>
-    <version>0.6.1</version>
+    <version>0.6.2-SNAPSHOT</version>
     <packaging>jar</packaging>
-
-
-  <scm>
-    <tag>0.8.0</tag>
-  </scm>
 </project>

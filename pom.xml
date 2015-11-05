@@ -4,7 +4,7 @@
 
   <groupId>org.abstractj.libmatthew</groupId>
   <artifactId>libmatthew-parent</artifactId>
-  <version>0.8.0</version>
+  <version>0.8.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>libmatthew</name>
@@ -48,7 +48,7 @@
     <connection>scm:git:git@github.com:abstractj/libmatthew-java.git</connection>
     <developerConnection>scm:git:git@github.com:abstractj/libmatthew-java.git</developerConnection>
     <url>https://github.com/abstractj/libmatthew-java</url>
-    <tag>0.8.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <distributionManagement>
@@ -82,22 +82,22 @@
       <dependency>
           <groupId>org.abstractj.libmatthew</groupId>
           <artifactId>cgi</artifactId>
-          <version>0.6.1</version>
+          <version>0.6.2-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>org.abstractj.libmatthew</groupId>
         <artifactId>hexdump</artifactId>
-        <version>0.2.1</version>
+        <version>0.2.2-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>org.abstractj.libmatthew</groupId>
         <artifactId>debug</artifactId>
-        <version>1.1.1</version>
+        <version>1.1.2-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>org.abstractj.libmatthew</groupId>
         <artifactId>unix</artifactId>
-        <version>0.5.1</version>
+        <version>0.5.2-SNAPSHOT</version>
       </dependency>
 
     </dependencies>
