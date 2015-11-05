@@ -3,14 +3,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>cx.ath.matthew</groupId>
   <artifactId>libcgi</artifactId>
-  <version>0.5</version>
+  <version>0.6.0</version>
   <packaging>so</packaging>
 
   <dependencies>
     <dependency>
       <groupId>cx.ath.matthew</groupId>
       <artifactId>cgi</artifactId>
-      <version>0.5</version>
+      <version>0.6.0</version>
     </dependency>
   </dependencies>
 
@@ -19,7 +19,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>native-maven-plugin</artifactId>
-        <version>1.0-alpha-6</version>
+        <version>1.0-alpha-8</version>
         <extensions>true</extensions>
         <configuration>
           <javahClassNames>

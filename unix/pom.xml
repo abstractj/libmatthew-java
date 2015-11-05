@@ -3,19 +3,19 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>cx.ath.matthew</groupId>
   <artifactId>unix</artifactId>
-  <version>0.5</version>
+  <version>0.5.0</version>
   <packaging>jar</packaging>
 
   <dependencies>
     <dependency>
       <groupId>cx.ath.matthew</groupId>
       <artifactId>debug</artifactId>
-      <version>1.1</version>
+      <version>1.1.0</version>
     </dependency>
     <dependency>
       <groupId>cx.ath.matthew</groupId>
       <artifactId>hexdump</artifactId>
-      <version>0.2</version>
+      <version>0.2.0</version>
     </dependency>
   </dependencies>
 </project>
