@@ -7,12 +7,12 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>libmatthew-debug</module>
-    <module>libmatthew-hexdump</module>
-    <module>libmatthew-unix</module>
-    <module>libmatthew-cgi</module>
-    <module>libmatthew-io</module>
-    <module>libmatthew-libcgi</module>
-    <module>libmatthew-libunix</module>
+    <module>debug</module>
+    <module>hexdump</module>
+    <module>unix</module>
+    <module>cgi</module>
+    <module>io</module>
+    <module>libcgi</module>
+    <module>libunix</module>
   </modules>
 </project>

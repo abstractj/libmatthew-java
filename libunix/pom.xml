@@ -2,14 +2,14 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>cx.ath.matthew</groupId>
-  <artifactId>libmatthew-libcgi</artifactId>
+  <artifactId>libunix</artifactId>
   <version>0.5</version>
   <packaging>so</packaging>
 
   <dependencies>
     <dependency>
       <groupId>cx.ath.matthew</groupId>
-      <artifactId>libmatthew-cgi</artifactId>
+      <artifactId>unix</artifactId>
       <version>0.5</version>
     </dependency>
   </dependencies>
@@ -23,9 +23,12 @@
         <extensions>true</extensions>
         <configuration>
           <javahClassNames>
-            <javahClassName>cx.ath.matthew.cgi.CGI</javahClassName>
+            <javahClassName>cx.ath.matthew.unix.UnixServerSocket</javahClassName>
+            <javahClassName>cx.ath.matthew.unix.UnixSocket</javahClassName>
+            <javahClassName>cx.ath.matthew.unix.USInputStream</javahClassName>
+            <javahClassName>cx.ath.matthew.unix.USOutputStream</javahClassName>
           </javahClassNames>
-          <javahOutputFileName>cgi-java.h</javahOutputFileName>
+          <javahOutputFileName>unix-java.h</javahOutputFileName>
           <sources>
             <source>
               <directory>src/main/native</directory>
